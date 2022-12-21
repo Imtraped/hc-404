@@ -54,7 +54,7 @@ body {
   .page {
     transform-style: preserve-3d;
     transform-origin: left center;
-    transition: transform .5s ease-in-out, box-shadow .5s ease-in-out;
+    transition: transform .70s ease-in-out, box-shadow .70s ease-in-out;
     position: absolute;
     width: 250px;
     height: 100%;
