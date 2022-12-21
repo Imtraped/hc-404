@@ -8,6 +8,7 @@
       height: 97vh;
       perspective: 1200px;
       display: flex;
+      flex-direction: column;
       /* when card is open it appears in center */
       justify-content: center;
       align-items: center;
@@ -36,7 +37,8 @@
     }
 
     h5,
-    p {
+    p,
+    .input {
       font-size: 1.7em;
       margin: 0.5em;
     }
@@ -87,10 +89,16 @@
 </head>
 
 <body>
+  <div class="input">
+    <label for="name">Who goes there?</label><br>
+    <input type="text" name="name" id="name"> 
+    <button onclick="openCard()">Go ></button>
+  </div>
+
   <div class="card">
     <div class="back">
-        <h5>Dear Friend,</h5>
-        <p>'Tis the season of giving and gratitude. We wish you and your family a
+        <h5 id="greeting">Dear Friend,</h5>
+        <p id="custom-greeting">'Tis the season of giving and gratitude. We wish you and your family a
           joyous and happy holiday season. </p>
         <h5>Ms. Paulino</h5>
     </div>
@@ -104,11 +112,35 @@
 </body>
 <script>
   /* turnPage after 2.5 seconds after the page has loaded */
-  setTimeout(turnPage, 2500);
-  function turnPage() {
+  // setTimeout(openCard, 2500);
+  function openCard() {
     document.querySelector('.front').classList.add('rotate-front');
     document.querySelector('.back').classList.add('rotate-back');
     document.querySelector('.page').classList.add('rotate-page');
+
+    var txtUserName = document.querySelector('#name');
+    var hGreeting = document.querySelector('#greeting');
+    var pCustomGreeting = document.querySelector('#custom-greeting');
+    hGreeting.innerHTML = `Dearest ${txtUserName.value},`;
+
+    var userName = txtUserName.value.toLowerCase();
+    if (userName == "david") {
+      pCustomGreeting.innerHTML = "May you keep warm and play chess. <br>♞";
+    } else if (userName == "mia") {
+      pCustomGreeting.innerHTML = "May you keep warm and have a rockin' holiday <br>🤘";
+    } else if (userName == "rawaa") {
+      pCustomGreeting.innerHTML = "May you keep warm and have a rest filled holiday break <br>😴";
+    } else if (userName == "jaeden") {
+      pCustomGreeting.innerHTML = "May you keep warm and win your hardest video game <br>🕹️";
+    } else if (userName == "phuc") {
+      pCustomGreeting.innerHTML = "May you keep warm and make holiday art<br>🎨";
+    } else if (userName == "nicholas") {
+      pCustomGreeting.innerHTML = "May you keep warm and catch espurr <br>🎮";
+    } else if (userName == "damian") {
+      pCustomGreeting.innerHTML = "May you keep warm and stay hydrated<br>🌊";
+    } else if (userName == "") {
+      // pCustomGreeting.innerHTML = "";
+    }
   }
 </script>
 </html>
