@@ -2,108 +2,19 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=0.5">
   <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Cookie&display=swap" rel="stylesheet">
-  <style>
-    body {
-      width: 99%;
-      height: 97vh;
-      perspective: 1200px;
-      display: flex;
-      flex-direction: column;
-      /* when card is open it appears in center */
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background-image: url('bg.jpg');
-      background-size: cover;
-      color: #900909
-    }
-
-    .card {
-      transform-style: preserve-3d;
-      position: relative;
-      height: 20em;
-    }
-
-    h1 {
-      font-family: 'Cookie', serif;
-      font-size: 2em;
-      margin-top: 2em;
-      padding: 0.3em;
-      background-color: white;
-    }
-
-    h5 {
-      font-family: 'Cookie', serif;
-    }
-
-    h5,
-    p,
-    .input {
-      font-size: 1.7em;
-      margin: 0.5em;
-    }
-
-    img {
-      margin-top: 2em;
-      width: 6em;
-      /* make image appear right side forward */
-      transform: scaleX(-1);
-    }
-
-    .page,
-    .front {
-      background: url('pokemon-winter.jpg') no-repeat center;
-      background-size: cover;
-    }
-
-    .front,
-    .back,
-    .page {
-      transform-style: preserve-3d;
-      transform-origin: left center;
-      transition: transform .5s ease-in-out, box-shadow .5s ease-in-out;
-      position: absolute;
-      width: 250px;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background-color: #F7F7F7;
-      padding: 40px;
-    }
-
-    .rotate-front {
-      transform: rotateY(-160deg);
-      box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
-    }
-
-    .rotate-page {
-      transform: rotateY(-159deg);
-      box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
-    }
-
-    .rotate-back {
-      transform: rotateY(-20deg);
-      box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <title>This is my Card.</title>
 </head>
 
 <body>
-  <div class="input">
-    <label for="name">Who goes there?</label><br>
-    <input type="text" name="name" id="name"> 
-    <button onclick="openCard()">Go ></button>
-  </div>
-
   <div class="card">
     <div class="back">
-        <h5 id="greeting">Dear Friend,</h5>
-        <p id="custom-greeting">'Tis the season of giving and gratitude. We wish you and your family a
-          joyous and happy holiday season. </p>
-        <h5>Ms. Paulino</h5>
+        <h5>Dear Mother,</h5>
+        <p>This time of year can be stressful, but I'm for you. I wish you the best at your job and within the new year.</p>
+        <h5>Nicholas - A Student at WTHS.</h5>
     </div>
     <div class="page">
-      <img src="wths-logo.png">
+      <img src="T'uo_flag.png">
     </div>
     <div class="front">
       <h1>Happy Holidays!</h1>
@@ -112,75 +23,11 @@
 </body>
 <script>
   /* turnPage after 2.5 seconds after the page has loaded */
-  // setTimeout(openCard, 2500);
-  function openCard() {
+  setTimeout(turnPage, 2500);
+  function turnPage() {
     document.querySelector('.front').classList.add('rotate-front');
     document.querySelector('.back').classList.add('rotate-back');
     document.querySelector('.page').classList.add('rotate-page');
-
-    var txtUserName = document.querySelector('#name');
-    var hGreeting = document.querySelector('#greeting');
-    var pCustomGreeting = document.querySelector('#custom-greeting');
-    hGreeting.innerHTML = `Dearest ${txtUserName.value},`;
-
-    var userName = txtUserName.value.toLowerCase();
-    if (userName == "david") {
-      pCustomGreeting.innerHTML = "May you keep warm and play chess. <br>♞";
-    } else if (userName == "mia") {
-      pCustomGreeting.innerHTML = "May you keep warm and have a rockin' holiday <br>🤘";
-    } else if (userName == "rawaa") {
-      pCustomGreeting.innerHTML = "May you keep warm and have a rest filled holiday break <br>😴";
-    } else if (userName == "jaeden") {
-      pCustomGreeting.innerHTML = "May you keep warm and win your hardest video game <br>🕹️";
-    } else if (userName == "phuc") {
-      pCustomGreeting.innerHTML = "May you keep warm and make holiday art<br>🎨";
-    } else if (userName == "nicholas" || userName == "nick") {
-      pCustomGreeting.innerHTML = "May you keep warm and catch Espurr <br>🎮";
-    } else if (userName == "damian") {
-      pCustomGreeting.innerHTML = "May you keep warm and stay hydrated<br>🌊";
-    } else if (userName == "rupa") {
-      pCustomGreeting.innerHTML = "May you keep warm and listen to KPop<br>🎶";
-    }  else if (userName == "sherise") {
-      pCustomGreeting.innerHTML = "May you keep warm and watch anime<br>📺";
-    }  else if (userName == "eduardo") {
-      pCustomGreeting.innerHTML = "May you keep warm and roll a 20<br>🎲";
-    }  else if (userName == "candice" || userName == "candy") {
-      pCustomGreeting.innerHTML = "May you keep warm and catch em all<br>🎮";
-    } else if (userName == "kwaku") {
-      pCustomGreeting.innerHTML = "May you keep warm and score a touchdown<br>🏈";
-    } else if (userName == "ans") {
-      pCustomGreeting.innerHTML = "May you keep warm and score a touchdown<br>🏈";
-    } else if (userName == "gio" || userName == "giovannie") {
-      pCustomGreeting.innerHTML = "May you keep warm and direct roblox masterpieces<br>🎬";
-    } else if (userName == "abdi") {
-      pCustomGreeting.innerHTML = "May you keep warm and score a gooooaaaaalllllll<br>⚽";
-    } else if (userName == "richard") {
-      pCustomGreeting.innerHTML = "May you keep warm, avoid avocados, and Feliz Natal<br>🥑";
-    } else if (userName == "timmy") {
-      pCustomGreeting.innerHTML = "May you keep warm and watch anime<br>📺";
-    }  else if (userName == "paul") {
-      pCustomGreeting.innerHTML = "May you keep warm and catch up on sleep during your holiday break <br>😴";
-    }  else if (userName == "jay" || userName == "jayden" ) {
-      pCustomGreeting.innerHTML = "May you keep warm and earn those advent of code starZ<br>🌟";
-    }  else if (userName == "lucas") {
-      pCustomGreeting.innerHTML = "May you keep warm, avoid avocados, and Feliz Natal<br>🥑";
-    }  else if (userName == "brayden") {
-      pCustomGreeting.innerHTML = "May you keep warm, avoid avocados, and Feliz Natal<br>🥑";
-    }  else if (userName == "jio" || userName == "jiovanni") {
-      pCustomGreeting.innerHTML = "May you keep warm and catch em all<br>🎮";
-    }  else if (userName == "jonathan") {
-      pCustomGreeting.innerHTML = "May you keep warm and beat seamus in advent of code<br>🌟";
-    }  else if (userName == "joseph" || userName == "joey") {
-      pCustomGreeting.innerHTML = "May you keep warm, avoid avocados, and Feliz Natal<br>🥑";
-    }  else if (userName == "naseem") {
-      pCustomGreeting.innerHTML = "May you keep warm and get those gainZ<br>🥑";
-    }  else if (userName == "taha") {
-      pCustomGreeting.innerHTML = "May you keep warm, avoid avocados, and Feliz Natal<br>🥑";
-    }  else if (userName == "teshoun") {
-      pCustomGreeting.innerHTML = "May you keep warm, avoid avocados, and Feliz Natal<br>🥑";
-    } else if (userName == "jeff" || userName == "jeffrey" || userName == "mr. leboeuf") {
-      pCustomGreeting.innerHTML = "May you keep warm and read old man logan<br>🐺";
-    } 
   }
 </script>
 </html>
