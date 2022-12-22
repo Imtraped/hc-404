@@ -7,6 +7,7 @@ function openCard() {
     var youPicked = document.querySelector('#lan');
     var iGreet = document.querySelector('#greeting');
     var thisLanguage = document.querySelector('#custom-lan');
+    var flag = document.querySelector('#flag');
     youPicked.innerHTML = `This is in ${txtLanguage.value},`;
 
     var languageName = txtLanguage.value.toLowerCase();
