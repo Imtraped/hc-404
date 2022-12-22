@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     width: 99%;
     height: 97vh;
@@ -77,4 +78,85 @@ body {
   .rotate-back {
     transform: rotateY(-20deg);
     box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+=======
+body {
+    width: 99%;
+    height: 97vh;
+    perspective: 1200px;
+    display: flex;
+    /* when card is open it appears in center */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url('winter_scene.jpg');
+    background-size: cover;
+    color: #55AE3A
+  }
+
+  .card {
+    transform-style: preserve-3d;
+    position: relative;
+    height: 20em;
+  }
+
+  h1 {
+    font-family: 'Cookie', serif;
+    font-size: 2em;
+    margin-top: 2em;
+    padding: 0.3em;
+    background-color: white;
+  }
+
+  h5 {
+    font-family: 'Cookie', serif;
+  }
+
+  h5,
+  p {
+    font-size: 1.7em;
+    margin: 0.5em;
+  }
+
+  img {
+    margin-top: 2em;
+    width: 6em;
+    /* make image appear right side forward */
+    transform: scaleX(-1);
+  }
+
+  .page,
+  .front {
+    background: url('christmas.jpg') no-repeat center;
+    background-size: cover;
+  }
+
+  .front,
+  .back,
+  .page {
+    transform-style: preserve-3d;
+    transform-origin: left center;
+    transition: transform .70s ease-in-out, box-shadow .70s ease-in-out;
+    position: absolute;
+    width: 250px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #F7F7F7;
+    padding: 40px;
+  }
+
+  .rotate-front {
+    transform: rotateY(-160deg);
+    box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+  }
+
+  .rotate-page {
+    transform: rotateY(-159deg);
+    box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+  }
+
+  .rotate-back {
+    transform: rotateY(-20deg);
+    box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+>>>>>>> 95cfdc9141934228d3a3e0ad2239474161604c87
   }
